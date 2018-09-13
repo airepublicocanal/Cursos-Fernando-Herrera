@@ -1,0 +1,8 @@
+https://github.com/angular/angular-cli
+https://github.com/angular/angular-cli/wiki/stories-1.0-update
+
+Step 1: npm install -g @angular/cli@latest (actualizar @angular/cli global)
+Step 2: ng new name-of-project (ignorar si existe)
+Step 3: cd name-of-project (ignorar si existe)
+Step 4: npm install (si no funciona ng serve)
+Step 5: ng serve --open
