@@ -1,0 +1,123 @@
+<h4>Formularios <small>data</small></h4>
+<hr>
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()" class="was-validated">
+  <div formGroupName="nombreCompleto">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input class="form-control"
+               formControlName="nombre"
+               type="text"
+               placeholder="Nombre">
+       <div *ngIf="forma.get('nombreCompleto.nombre').errors?.required" class="invalid-feedback">
+         Este campo es obligatorio
+       </div>
+       <div *ngIf="forma.controls['nombreCompleto'].controls['nombre'].errors?.minlength" class="invalid-feedback">
+         El tamaño minimo es de {{forma.get('nombreCompleto.nombre').errors.minlength.requiredLength}} caracteres
+       </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+        <input class="form-control"
+               formControlName="apellido"
+               type="text"
+               placeholder="Apellido">
+       <div *ngIf="forma.get('nombreCompleto.apellido').errors?.required" class="invalid-feedback">
+         Este campo es obligatorio
+       </div>
+       <div *ngIf="forma.get('nombreCompleto.apellido').errors?.noCadaval" class="invalid-feedback">
+         No se uede introducir el apellido Cadaval
+       </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+      <input class="form-control"
+             formControlName="email"
+             type="email"
+             placeholder="Correo electrónico">
+     <div *ngIf="forma.controls['email'].errors?.required" class="invalid-feedback">
+       Este campo es obligatorio
+     </div>
+     <div *ngIf="forma.controls['email'].errors?.pattern" class="invalid-feedback">
+       El email es incorrecto
+     </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">UserName</label>
+    <div class="col-8">
+      <input class="form-control"
+             formControlName="userName"
+             type="text"
+             placeholder="UserName">
+     <div *ngIf="forma.get('nombreCompleto.nombre').errors?.required" class="invalid-feedback">
+       Este campo es obligatorio
+     </div>
+     <div *ngIf="forma.controls['nombreCompleto'].controls['nombre'].errors?.existeUsuario" class="invalid-feedback">
+       El usuario ya existe
+     </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-md-8">
+      <input class="form-control"
+             formControlName="password1"
+             type="password"
+             placeholder="Password">
+     <div *ngIf="forma.controls['password1'].errors?.required" class="invalid-feedback">
+       Este campo es obligatorio
+     </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Repetir Password</label>
+    <div class="col-md-8">
+      <input class="form-control"
+             formControlName="password2"
+             type="password"
+             placeholder="Repetir Password">
+     <div *ngIf="forma.controls['password2'].errors?.required" class="invalid-feedback">
+       Este campo es obligatorio
+     </div>
+     <div *ngIf="forma.controls['password2'].errors?.noIgual" class="invalid-feedback">
+       El password tiene que ser igual
+     </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Pasatiempos</label>
+    <div class="col-md-8" formArrayName="pasatiempos">
+      <input class="form-control" *ngFor="let pasatiempo of forma.controls['pasatiempos'].controls; let i = index"
+             [formControlName]="i"
+             type="text" >
+    </div>
+
+    <button (click)="agregarPasatiempo()"
+      type="button" class="btn btn-primary">Nuevo</button>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" [disabled]="!forma.valid" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  {{forma.valid}}
+  <br>
+  {{forma.status}}
+</form>

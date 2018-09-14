@@ -1,0 +1,24 @@
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-3">
+      <label for="keywords">Buscador de artistas</label>
+      <input [(ngModel)]="keywords"
+        (keyup)="searchArtists()"
+        type="text" name="keywords" class="form-control" placeholder="Buscar por artista...">
+      <hr>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-3 text-center puntero"
+          [routerLink]="['/artist', artist.id]"
+          *ngFor="let artist of _spotifyService.artists">
+
+          <img [src]="artist.images|noArtistImage" [alt]="artist.name" class="img-fluid img-thumbnail">
+          <p>{{artist.name}}</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
