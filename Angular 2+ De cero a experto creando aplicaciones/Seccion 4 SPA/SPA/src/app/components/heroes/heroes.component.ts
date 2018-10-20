@@ -9,21 +9,19 @@ import { HeroesService, Heroe } from '../../services/heroes.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes:Heroe[] = [];
+  heroes: Heroe[] = [];
 
-  constructor(private _heroesService:HeroesService,
-              private router:Router) {
-    console.log("contructor");
+  constructor(private _heroesService: HeroesService, private router: Router) {
+    console.log('contructor');
   }
 
   ngOnInit() {
-    console.log("ngOnInit");
+    console.log('ngOnInit');
 
     this.heroes = this._heroesService.getHeroes();
   }
 
-  verHeroe(idx:number) {
-    this.router.navigate(['/heroe', idx]);
+  verHeroe(index: number) {
+    this.router.navigate(['/heroe', index]);
   }
-
 }
