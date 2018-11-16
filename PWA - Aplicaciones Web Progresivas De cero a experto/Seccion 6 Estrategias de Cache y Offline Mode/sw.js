@@ -10,17 +10,14 @@ const CACHE_INMUTABLE_NAME = 'inmutable-v1';
 const CACHE_DYNAMIC_LIMIT = 50;
 
 function limpiarCache(cacheName, numItems) {
-    caches.open(cacheName)
-        .then(cache => {
-            cache.keys()
-                .then(keys => {
-                    console.log(keys);
-                    if (keys.length >= numItems) {
-                        cache.delete(keys[0])
-                            .then(limpiarCache(cacheName, numItems));
-                    }
-                });
+    caches.open(cacheName).then(cache => {
+        cache.keys().then(keys => {
+            console.log(keys);
+            if (keys.length >= numItems) {
+                cache.delete(keys[0]).then(limpiarCache(cacheName, numItems));
+            }
         });
+    });
 }
 
 self.addEventListener('install', e => {
