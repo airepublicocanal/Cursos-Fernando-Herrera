@@ -4,8 +4,6 @@ const STATIC_CACHE = 'static-v4';
 const DYNAMIC_CACHE = 'dynamic-v2';
 const INMUTABLE_CACHE = 'inmutable-v1';
 
-const DYNAMIC_CACHE_LIMIT = 50;
-
 const APP_SHELL_STATIC = [
     //'/',
     'index.html',
@@ -17,7 +15,7 @@ const APP_SHELL_STATIC = [
     'img/avatars/ironman.jpg',
     'img/avatars/spiderman.jpg',
     'img/avatars/thor.jpg',
-    'img/avatars/wolverine.jpg',
+    'img/avatars/wolverine.jpg'
 ];
 
 const APP_SHELL_INMUTABLE = [
