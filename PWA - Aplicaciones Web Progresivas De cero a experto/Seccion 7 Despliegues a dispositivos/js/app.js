@@ -1,10 +1,10 @@
 //Install Service Worker
 const url = window.location.href;
-var swLocation = '/twittor/sw.js';
+let swLocation = '/pwa/sw.js';
 
 if (navigator.serviceWorker) {
     if (url.includes('localhost')) {
-        swLocation = '/sw.js';
+        swLocation = '/swLocation.js';
     }
 
     navigator.serviceWorker.register(swLocation);
