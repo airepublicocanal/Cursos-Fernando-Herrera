@@ -9,14 +9,3 @@ function actualizaCacheDynamic(dynamicCache, req, res) {
         return res;
     }
 }
-
-function limpiarCache(cacheName, numItems) {
-    caches.open(cacheName).then(cache => {
-        cache.keys().then(keys => {
-            console.log(keys);
-            if (keys.length >= numItems) {
-                cache.delete(keys[0]).then(limpiarCache(cacheName, numItems));
-            }
-        });
-    });
-}

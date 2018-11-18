@@ -4,7 +4,7 @@ let swLocation = '/pwa/sw.js';
 
 if (navigator.serviceWorker) {
     if (url.includes('localhost')) {
-        swLocation = '/swLocation.js';
+        swLocation = '/sw.js';
     }
 
     navigator.serviceWorker.register(swLocation);
