@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
+import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
@@ -14,7 +17,13 @@ import { ProgressComponent } from './progress/progress.component';
     ProgressComponent,
     Graficas1Component
   ],
-  imports: [SharedModule, PagesRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PagesRoutingModule,
+    SharedModule,
+    ComponentsModule
+  ],
   exports: [
     PagesComponent,
     DashboardComponent,

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
@@ -12,6 +13,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BreadcrumbsComponent,
     NopagefoundComponent
   ],
+  imports: [CommonModule],
   exports: [
     HeaderComponent,
     SidebarComponent,
