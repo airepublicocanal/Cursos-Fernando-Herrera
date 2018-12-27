@@ -9,13 +9,15 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Graficas1Component
+    Graficas1Component,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ProgressComponent } from './progress/progress.component';
     PagesComponent,
     DashboardComponent,
     ProgressComponent,
-    Graficas1Component
+    Graficas1Component,
+    AccountSettingsComponent
   ]
 })
 export class PagesModule {}
